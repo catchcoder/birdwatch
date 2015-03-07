@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- https://developers.google.com/speed/libraries/devguide#jquery -->
+<html>
+  <head>
+ <meta charset="utf-8">
+    <title><%= title %></title>
+    	<link rel='stylesheet' href='/stylesheets/style.css' />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h1><span class="label label-primary" ><%= title %></span></h1>
+    </div>
+  </div>
+</nav>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+     <h2><span class="label label-primary" >Live Feed </span></h2>
+<div id="livefeed">
+<img src="http://192.168.0.24:8081"  width="100%" alt="stream" />
+</div> <!-- livefeed -->
+</div> <!-- col-md-6 -->
+<div class="col-md-6">
+<section id="snapshot" >
+
+
+ <h2><span class="label label-success">Snapshot</span></h2>
+
+<div id="image">
+<img id="webcam" src="/images/lastimage.jpg" width="100%" alt="Snapshot" />
+</div> <!-- image -->
+
+ <script type="text/javascript">
+	var int = self.setInterval("reload();",60000);
+
+	function reload(){
+		$("#webcam").attr("src","/images/lastimage.jpg?r=" + Math.random());
+	}
+</script>
+</section> 
+<!-- snapshot -->
+</div> <!-- col-md-6 -->
+</div> <! -- row -->
+
+</div> <!-- container -->
+<footer class="footer" style="background-color:#c2c2c2;">
+    <div class="container" style="margin:0 auto;">
+<p id="date">
+
+<script>
+document.getElementById("date").innerHTML = Date();
+</script>
+</p> <!-- date page loaded -->
+</div> <!--container-->
+</footer> <!-- footer -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+ </body>
+</html>
+
